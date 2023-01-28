@@ -1,7 +1,15 @@
 package com.projetodonation.model;
 
-import java.util.List;
+import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.util.List;
+@Builder
+@Getter
+@Setter
+@Data
 public class Ong implements UsuarioInterface {
     private String foto;
 
