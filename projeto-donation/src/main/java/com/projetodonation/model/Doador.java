@@ -1,15 +1,14 @@
 package com.projetodonation.model;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 @Builder
 @Getter
 @Setter
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Doador implements UsuarioInterface {
     private String foto;
 
