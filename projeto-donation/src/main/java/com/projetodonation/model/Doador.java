@@ -13,11 +13,11 @@ public class Doador implements UsuarioInterface {
     private String foto;
 
     @Override
-    public List<Object> buscarDoacoes() {
+    public List<Doacao> buscarDoacoes() {
         return null;
     }
     @Override
-    public Object buscarDoacaoPorId() {
+    public Doacao buscarDoacaoPorId() {
         return null;
     }
 }
