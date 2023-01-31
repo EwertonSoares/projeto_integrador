@@ -1,5 +1,7 @@
 package com.projetodonation.service.impl;
 
+import com.projetodonation.controller.response.UsuarioResponse;
+import com.projetodonation.exceptions.NotFoundException;
 import com.projetodonation.model.Usuario;
 import com.projetodonation.repository.LoginRepository;
 import com.projetodonation.repository.entities.UsuarioEntity;
@@ -14,10 +16,16 @@ public class LoginServiceImpl implements LoginService {
     @Autowired
     private LoginRepository repository;
     @Override
-    public boolean logar(Usuario usuario) {
+    public UsuarioResponse logar(Usuario usuario) throws NotFoundException {
         Optional<UsuarioEntity> usuarioEncontrado = repository
                 .findByloginAndSenha(usuario.getLogin(), usuario.getSenha());
 
-        return usuarioEncontrado.isPresent();
+        if(usuarioEncontrado.isEmpty()) {
+            throw new NotFoundException("Usuario não foi encontrado");
+        }
+
+        return UsuarioResponse.builder()
+                .login(usuarioEncontrado.get().getLogin())
+                .build();
     }
 }

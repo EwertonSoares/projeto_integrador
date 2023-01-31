@@ -2,10 +2,10 @@ package com.projetodonation.model;
 
 import lombok.*;
 
-@Builder
 @Getter
 @Setter
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Usuario {
