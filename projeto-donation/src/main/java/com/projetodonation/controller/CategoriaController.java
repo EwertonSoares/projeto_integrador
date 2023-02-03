@@ -32,4 +32,11 @@ public class CategoriaController {
                 .body(categoriaRepository.save(categoria));
     }
 
+    @GetMapping("/{tipo}")
+    public ResponseEntity<Categoria> getAllByTipo(@PathVariable String tipo){
+        return ResponseEntity.ok(categoriaRepository.findAllByTipoContainingIgnoreCase(tipo));
+    }
+
+
+
 }
