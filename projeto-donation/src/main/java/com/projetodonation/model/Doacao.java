@@ -1,5 +1,6 @@
 package com.projetodonation.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -18,6 +19,11 @@ public class Doacao {
     @UpdateTimestamp
     private LocalDate dataDoacao;
     private Double valor;
+
+    @ManyToOne
+    @JsonIgnoreProperties("doacao")
+    private Categoria categoria;
+
     @NotBlank
     @Size (min = 5, max = 1000, message = "Deve conter entre 5 e 1000 caracteres")
     private String descricao;
@@ -82,5 +88,13 @@ public class Doacao {
 
     public void setPerecivel(String perecivel) {
         this.perecivel = perecivel;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }
