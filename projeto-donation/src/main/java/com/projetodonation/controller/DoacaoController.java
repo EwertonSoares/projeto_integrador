@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -20,14 +21,16 @@ public class DoacaoController {
     @Autowired
     private DoacaoRepository doacaoRepository;
 
-    @GetMapping()
-    public String buscarDoeacoes() {
-        return "Todas as doações quitem";
+    @GetMapping
+    public ResponseEntity<List<Doacao>> getAll () {
+        return ResponseEntity.ok(doacaoRepository.findAll());
     }
 
     @GetMapping("/{id}")
-    public String buscarDoacaoPorId() {
-        return "Doação Id";
+    public ResponseEntity<Doacao> buscarDoacaoPorId(@PathVariable Long id) {
+        return doacaoRepository.findById(id)
+                .map(reposta -> ResponseEntity.ok(reposta))
+                .orElse (ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
     @PostMapping

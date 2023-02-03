@@ -17,8 +17,7 @@ public class Doacao {
 
     @UpdateTimestamp
     private LocalDate dataDoacao;
-    @NotBlank
-    private BigDecimal valor;
+    private Double valor;
     @NotBlank
     @Size (min = 5, max = 1000, message = "Deve conter entre 5 e 1000 caracteres")
     private String descricao;
@@ -27,8 +26,15 @@ public class Doacao {
     @NotBlank
     private String tipo;
     @NotBlank
-    private boolean perecível;
+    private String perecivel;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public LocalDate getDataDoacao() {
         return dataDoacao;
@@ -38,11 +44,11 @@ public class Doacao {
         this.dataDoacao = dataDoacao;
     }
 
-    public BigDecimal getValor() {
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor(BigDecimal valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
     }
 
@@ -70,19 +76,11 @@ public class Doacao {
         this.tipo = tipo;
     }
 
-    public boolean isPerecível() {
-        return perecível;
+    public String getPerecivel() {
+        return perecivel;
     }
 
-    public void setPerecível(boolean perecível) {
-        this.perecível = perecível;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setPerecivel(String perecivel) {
+        this.perecivel = perecivel;
     }
 }
