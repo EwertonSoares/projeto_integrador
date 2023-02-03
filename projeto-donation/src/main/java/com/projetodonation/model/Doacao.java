@@ -1,0 +1,88 @@
+package com.projetodonation.model;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+@Entity
+@Table (name = "tb_doacoes")
+public class Doacao {
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @UpdateTimestamp
+    private LocalDate dataDoacao;
+    @NotBlank
+    private BigDecimal valor;
+    @NotBlank
+    @Size (min = 5, max = 1000, message = "Deve conter entre 5 e 1000 caracteres")
+    private String descricao;
+    @NotBlank
+    private String foto;
+    @NotBlank
+    private String tipo;
+    @NotBlank
+    private boolean perecível;
+
+
+    public LocalDate getDataDoacao() {
+        return dataDoacao;
+    }
+
+    public void setDataDoacao(LocalDate dataDoacao) {
+        this.dataDoacao = dataDoacao;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public boolean isPerecível() {
+        return perecível;
+    }
+
+    public void setPerecível(boolean perecível) {
+        this.perecível = perecível;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+}
