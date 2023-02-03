@@ -27,15 +27,6 @@ public class Doacao {
     private String tipo;
     @NotBlank
     private String perecivel;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public LocalDate getDataDoacao() {
         return dataDoacao;
     }
@@ -58,6 +49,14 @@ public class Doacao {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFoto() {
