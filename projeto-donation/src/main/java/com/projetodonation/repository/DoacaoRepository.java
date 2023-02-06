@@ -12,6 +12,6 @@ import java.util.List;
 @Repository
 public interface DoacaoRepository extends JpaRepository<Doacao, Long> {
 
-    public List<Doacao> findDoacaoByCategoriaContainingIgnoreCase(@Param("categoria")String categoria);
+    public List<Doacao> findDoacaoByCategoriaTipoContainingIgnoreCase(@Param("categoria")String categoria);
 
 }
