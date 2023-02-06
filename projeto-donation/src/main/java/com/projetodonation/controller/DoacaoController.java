@@ -35,7 +35,7 @@ public class DoacaoController {
 
     @GetMapping("/categoria/{categoria}")
     public ResponseEntity<List<Doacao>>getByCategoria(@PathVariable String categoria){
-        return ResponseEntity.ok(doacaoRepository.findDoacaoByCategoriaContainingIgnoreCase(categoria));
+        return ResponseEntity.ok(doacaoRepository.findDoacaoByCategoriaTipoContainingIgnoreCase(categoria));
     }
 
     @PostMapping
