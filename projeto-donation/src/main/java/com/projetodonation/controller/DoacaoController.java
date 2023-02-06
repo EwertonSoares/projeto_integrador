@@ -33,6 +33,11 @@ public class DoacaoController {
                 .orElse (ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
+    @GetMapping("/categoria/{categoria}")
+    public ResponseEntity<List<Doacao>>getByCategoria(@PathVariable String categoria){
+        return ResponseEntity.ok(doacaoRepository.findDoacaoByCategoriaContainingIgnoreCase(categoria));
+    }
+
     @PostMapping
     public ResponseEntity<Doacao> postDoacao(@Valid @RequestBody Doacao doacao) {
         return ResponseEntity.status(HttpStatus.CREATED)

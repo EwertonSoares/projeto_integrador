@@ -10,10 +10,5 @@ import java.util.List;
 
 @Repository
 public interface CategoriaRepository  extends JpaRepository<Categoria, Long> {
-
      Categoria findAllByTipoContainingIgnoreCase(@Param("tipo") String tipo);
-
-
-
-
 }
