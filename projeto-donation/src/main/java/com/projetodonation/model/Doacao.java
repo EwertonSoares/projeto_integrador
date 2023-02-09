@@ -24,6 +24,7 @@ public class Doacao {
     @JsonIgnoreProperties("doacao")
     private Categoria categoria;
 
+
     @NotBlank
     @Size (min = 5, max = 1000, message = "Deve conter entre 5 e 1000 caracteres")
     private String descricao;
