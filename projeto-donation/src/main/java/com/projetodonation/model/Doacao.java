@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table (name = "tb_doacoes")
@@ -34,6 +35,18 @@ public class Doacao {
     private String tipo;
     @NotBlank
     private String perecivel;
+
+    @ManyToOne
+    @JsonIgnoreProperties("doacao")
+    private Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     public Long getId() {
         return id;
