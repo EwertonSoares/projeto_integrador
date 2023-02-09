@@ -21,7 +21,7 @@ public class DoacaoController {
     @Autowired
     private DoacaoRepository doacaoRepository;
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Doacao>> getAll () {
         return ResponseEntity.ok(doacaoRepository.findAll());
     }
