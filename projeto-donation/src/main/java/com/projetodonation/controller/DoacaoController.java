@@ -38,13 +38,13 @@ public class DoacaoController {
         return ResponseEntity.ok(doacaoRepository.findDoacaoByCategoriaTipoContainingIgnoreCase(categoria));
     }
 
-    @PostMapping("/cadastrar")
+    @PostMapping
     public ResponseEntity<Doacao> postDoacao(@Valid @RequestBody Doacao doacao) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(doacaoRepository.save(doacao));
     }
 
-    @PutMapping("/atualizar")
+    @PutMapping
     public ResponseEntity <Doacao> putDoacao (@Valid @RequestBody Doacao doacao) {
         return doacaoRepository.findById(doacao.getId())
                 .map(resposta -> ResponseEntity.status(HttpStatus.OK)
@@ -53,7 +53,7 @@ public class DoacaoController {
     }
 
     @ResponseStatus (HttpStatus.NO_CONTENT)
-    @DeleteMapping ("/remover/{id}")
+    @DeleteMapping ("/{id}")
     public void deleteDoacao (@PathVariable Long id) {
         Optional <Doacao> doacao = doacaoRepository.findById(id);
 
