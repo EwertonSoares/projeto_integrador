@@ -1,5 +1,6 @@
 package com.projetodonation.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -38,6 +39,7 @@ public class Doacao {
 
     @ManyToOne
     @JsonIgnoreProperties("doacao")
+    @JsonIgnore // Não exibe os dados do usuario que cadastrou
     private Usuario usuario;
 
     public Usuario getUsuario() {

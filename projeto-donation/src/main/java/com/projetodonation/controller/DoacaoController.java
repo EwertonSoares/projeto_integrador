@@ -53,7 +53,7 @@ public class DoacaoController {
     }
 
     @ResponseStatus (HttpStatus.NO_CONTENT)
-    @DeleteMapping ("/{id}")
+    @DeleteMapping ("/remover/{id}")
     public void deleteDoacao (@PathVariable Long id) {
         Optional <Doacao> doacao = doacaoRepository.findById(id);
 
