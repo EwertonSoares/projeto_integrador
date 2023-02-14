@@ -21,7 +21,7 @@ public class DoacaoController {
     @Autowired
     private DoacaoRepository doacaoRepository;
 
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<List<Doacao>> getAll () {
         return ResponseEntity.ok(doacaoRepository.findAll());
     }
@@ -38,13 +38,13 @@ public class DoacaoController {
         return ResponseEntity.ok(doacaoRepository.findDoacaoByCategoriaTipoContainingIgnoreCase(categoria));
     }
 
-    @PostMapping
+    @PostMapping("/cadastrar")
     public ResponseEntity<Doacao> postDoacao(@Valid @RequestBody Doacao doacao) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(doacaoRepository.save(doacao));
     }
 
-    @PutMapping
+    @PutMapping("/atualizar")
     public ResponseEntity <Doacao> putDoacao (@Valid @RequestBody Doacao doacao) {
         return doacaoRepository.findById(doacao.getId())
                 .map(resposta -> ResponseEntity.status(HttpStatus.OK)
