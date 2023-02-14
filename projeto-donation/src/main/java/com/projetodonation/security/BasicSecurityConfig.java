@@ -39,6 +39,8 @@ public class BasicSecurityConfig {
                         .requestMatchers("/usuarios/logar").permitAll()
                         .requestMatchers("/usuarios/cadastrar").permitAll()
                         .requestMatchers("/doacoes").permitAll()
+                        .requestMatchers("/doacoes/{id}").permitAll()
+                        .requestMatchers("/doacoes/categoria/{categoria}").permitAll()
                         .requestMatchers(HttpMethod.OPTIONS).permitAll()
                         .anyRequest().authenticated())
                 .httpBasic();
