@@ -39,7 +39,7 @@ public class Doacao {
 
     @ManyToOne
     @JsonIgnoreProperties("doacao")
-    @JsonIgnore
+    @JsonIgnore // Não exibe os dados do usuario que cadastrou
     private Usuario usuario;
 
     public Usuario getUsuario() {
