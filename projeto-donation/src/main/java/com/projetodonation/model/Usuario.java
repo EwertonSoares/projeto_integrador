@@ -1,5 +1,6 @@
 package com.projetodonation.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
@@ -35,6 +36,7 @@ public class Usuario {
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
     @JsonIgnoreProperties("usuario")
+    @JsonIgnore
     private List<Doacao> doacao;
 
 

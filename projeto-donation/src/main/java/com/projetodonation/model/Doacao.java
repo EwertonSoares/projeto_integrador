@@ -20,20 +20,17 @@ public class Doacao {
 
     @UpdateTimestamp
     private LocalDate dataDoacao;
-    private Double valor;
 
     @ManyToOne
     @JsonIgnoreProperties("doacao")
     private Categoria categoria;
-
 
     @NotBlank
     @Size (min = 5, max = 1000, message = "Deve conter entre 5 e 1000 caracteres")
     private String descricao;
     @NotBlank
     private String foto;
-    @NotBlank
-    private String tipo;
+
     @NotBlank
     private String perecivel;
 
@@ -66,14 +63,6 @@ public class Doacao {
         this.dataDoacao = dataDoacao;
     }
 
-    public Double getValor() {
-        return valor;
-    }
-
-    public void setValor(Double valor) {
-        this.valor = valor;
-    }
-
     public String getDescricao() {
         return descricao;
     }
@@ -90,13 +79,6 @@ public class Doacao {
         this.foto = foto;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
 
     public String getPerecivel() {
         return perecivel;

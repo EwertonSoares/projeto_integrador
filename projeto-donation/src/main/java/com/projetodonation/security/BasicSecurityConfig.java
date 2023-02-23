@@ -44,6 +44,7 @@ public class BasicSecurityConfig {
                         .requestMatchers(HttpMethod.GET,"/doacoes/categoria/{categoria}").permitAll()
                         .requestMatchers(HttpMethod.OPTIONS).permitAll()
                         .anyRequest().authenticated())
+
                 .httpBasic();
 
         return http.build();
